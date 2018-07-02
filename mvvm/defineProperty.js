@@ -101,7 +101,6 @@ function Archiver() {
     // }
     // data.age=22;
 }
-
 var arc = new Archiver();
 arc.temperature = 50;
 console.log(arc.temperature);
