@@ -27,7 +27,7 @@ export default {
             auth.login(this.email,this.pass,(loggedIn)=>{
                 console.log(loggedIn);
                 if(loggedIn){
-                    this.$router.replace(this.$route.query.redirect||'/')
+                    this.$router.replace(this.$route.query.redirect||'/') 
                 } 
             });
         }

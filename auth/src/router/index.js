@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import About from '@/views/About'
 import Dashboard from '@/views/Dashboard'
+import logout from '@/views/logout'
 import login from '@/views/login'
 import auth from '../auth'
 Vue.use(Router)
@@ -16,8 +17,11 @@ const requireAuth=((to,from,next)=>{
         redirect:to.fullPath
       }
     })
-  }
-  next();
+  }else if (loggedIn && to.path === '/login') {
+    next({ path: '/' })
+  }else{
+    next();
+  } 
 })
 
 export default new Router({
@@ -42,7 +46,7 @@ export default new Router({
     },
     {
      path:'/logout',
-     redirect:'/' 
+      component:logout
     }
   ]
 })

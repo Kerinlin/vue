@@ -1,17 +1,35 @@
 <template>
   <div id="app">
-    <router-link to="/"></router-link>
+    <router-link to="/">Home</router-link>
     <router-link to="/about">/About</router-link>
     <router-link to="/dashboard">/Dashboard</router-link>
-    <router-link to="/login">/Login</router-link>
-    <router-link to="/">/LogOut</router-link>
+    <router-link to="/login" v-if="show">/Login</router-link>
+    <router-link to="/logout" v-if="!show" >/LogOut</router-link>
     <router-view/>
   </div>
 </template>
 
 <script>
+import auth from '@/auth'
 export default {
-  name: 'App'
+  name: 'App',
+  data(){
+    return{
+      show:true
+    }
+  },
+  beforeUpdate(){
+    console.log(auth.loggedIn());
+    
+    if(auth.loggedIn()){
+      this.show=false;
+    }else{
+      this.show=true;
+    }
+  },
+  
+
+
 }
 </script>
 
