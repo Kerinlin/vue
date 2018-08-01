@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Foo from '@/views/Foo'
-import Home from '@/views/Home'
+import foo from '@/views/foo'
+import home from '@/views/home'
 Vue.use(VueRouter)
 
 const router = new VueRouter({
@@ -9,11 +9,11 @@ const router = new VueRouter({
     routes: [
         {
             path: '/',
-            component: Home
+            component: home
         },
         {
             path: '/foo',
-            component: Foo
+            component: foo
         }
     ]
 })
